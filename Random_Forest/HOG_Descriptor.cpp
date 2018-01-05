@@ -1,9 +1,9 @@
 #include <iostream>
 #include "hog_visualization.h"
 
-bool visualize_progress = false;
+bool visualize_progress = true;
 
-int main()
+int HOG_Descriptor()
 {
 	/**********************************************************************
 	READING THE ORIGINAL IMAGE AND CREATING DIFFERENT IMAGES USING
@@ -137,23 +137,30 @@ int main()
 	**********************************************************************/
 	
 	//std::cout << "\n\nSize: " << original_image.rows << "  " << original_image.cols << std::endl;
-	cv::Size winsize(original_image.cols, original_image.rows);
-	cv::HOGDescriptor hog_original_image(winsize, cv::Size(17,15), cv::Size(5,5), cv::Size(5,5), 9);
-	std::vector<float> descriptors_original_image;
+	cv::Rect region(0, 0, 124, 104);
+	cv::Mat cropped_image = original_image(region);
+	cv::Size cellsize(8, 8);
+	cv::Size blocksize(16, 16);
+	cv::Size stridesize(4, 4);
+	cv::Size winsize(cropped_image.cols, cropped_image.rows);
+	
+	cv::HOGDescriptor hog_cropped_image(winsize, blocksize, stridesize, cellsize, 9);
+	std::vector<float> descriptors_cropped_image;
 
 	try
 	{
-		hog_original_image.compute(original_image,
-								   descriptors_original_image,
+		hog_cropped_image.compute(cropped_image,
+								   descriptors_cropped_image,
 								   cv::Size(),
 								   cv::Size(0, 0));
-		cv::waitKey(0);
-		visualizeHOG(original_image, descriptors_original_image, hog_original_image);
+		//cv::waitKey(0);
+		visualizeHOG(cropped_image, descriptors_cropped_image, hog_cropped_image);
+		cv::waitKey(3000);
 	}
 	catch (const std::exception& ex)
 	{
-		std::cout << "Error during flipping the original image: " << ex.what() << "\n\n";
+		std::cout << "Error during calculating the HOG descriptor: " << ex.what() << "\n\n";
 	}
 
-	cv::waitKey(0);
+	//cv::waitKey(0);
 }

@@ -17,7 +17,9 @@ extern void visualizeHOG(cv::Mat & img,
 						 int scale_factor = 3);
 
 /*
-* img          - the image used for computing HOG descriptors. **Attention here the size of the image should be the same as the window size of your cv::HOGDescriptor instance **
+* img          - the image used for computing HOG descriptors. 
+				 **Attention here the size of the image should be the same as 
+				 the window size of your cv::HOGDescriptor instance **
 * feats        - the hog descriptors you get after calling cv::HOGDescriptor::compute
 * hog_detector - the instance of cv::HOGDescriptor you used
 * scale_factor - scale the image *scale_factor* times larger for better visualization

@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="HOG_Descriptor.cpp" />
     <ClCompile Include="hog_visualization.cpp" />
+    <ClCompile Include="Object_classification.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hog_visualization.h" />
