@@ -24,9 +24,15 @@
     <ClCompile Include="Object_classification.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Random_Forest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hog_visualization.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Random_Forest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

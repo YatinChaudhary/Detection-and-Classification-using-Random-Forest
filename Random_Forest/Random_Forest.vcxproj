@@ -146,9 +146,11 @@
     <ClCompile Include="HOG_Descriptor.cpp" />
     <ClCompile Include="hog_visualization.cpp" />
     <ClCompile Include="Object_classification.cpp" />
+    <ClCompile Include="Random_Forest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hog_visualization.h" />
+    <ClInclude Include="Random_Forest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

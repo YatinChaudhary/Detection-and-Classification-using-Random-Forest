@@ -152,7 +152,7 @@ int HOG_Descriptor()
 		hog_cropped_image.compute(cropped_image,
 								   descriptors_cropped_image,
 								   cv::Size(),
-								   cv::Size(0, 0));
+								   cv::Size(0, 0));	
 		//cv::waitKey(0);
 		visualizeHOG(cropped_image, descriptors_cropped_image, hog_cropped_image);
 		cv::waitKey(3000);
