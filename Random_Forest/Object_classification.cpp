@@ -9,9 +9,15 @@ int main()
 {
 	// creating DTree
 	cv::Ptr<cv::ml::DTrees> dtree = cv::ml::DTrees::create();
+	dtree->setCVFolds(1);
+	dtree->setMaxCategories(10);
+	dtree->setMinSampleCount(1);
+	dtree->setMaxDepth(12);
+
 	cv::Mat features;
 	cv::Mat labels;
 	cv::Size roi(48, 48);
+
 	std::cout << "\n chk-1" << std::endl;
 	int x = get_data_and_labels("D:\\M.Sc\\Semester_3\\Tracking and Detection in Computer Vision\\Exercises\\2\\data\\task2\\train", features, labels, roi);
 	//labels.reshape(1, features.rows);
@@ -24,12 +30,12 @@ int main()
 	try
 	{
 		std::cout << "\n chk-3" << std::endl;
-		cv::Ptr<cv::ml::TrainData> data = cv::ml::TrainData::create(features, cv::ml::ROW_SAMPLE, labels);
+		cv::Ptr<cv::ml::TrainData> data = cv::ml::TrainData::create(features, cv::ml::SampleTypes::ROW_SAMPLE, labels);
 		//cv::hconcat(features, labels, features);
-		cv::imwrite("../../features.exr", features);
-		cv::imwrite("../../labels.exr", labels);
+		//cv::imwrite("../../features.exr", features);
+		//cv::imwrite("../../labels.exr", labels);
 		std::cout << "\n chk-4" << std::endl;
-		//dtree->train(data);
+		dtree->train(data);
 		std::cout << "\n chk-5" << std::endl;
 	}
 	catch (const std::exception& ex)
