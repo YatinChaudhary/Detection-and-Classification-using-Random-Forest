@@ -3,7 +3,7 @@
 #include "opencv2\ml.hpp"
 #include "hog_visualization.h"
 
-int get_data_and_labels(cv::String path, cv::Mat & features, cv::Mat & labels, cv::Size & roi_size);
+extern int get_data_and_labels(cv::String path, cv::Mat & features, cv::Mat & labels, cv::Size & roi_size);
 
 int main()
 {
@@ -45,7 +45,7 @@ int main()
 
 	return 0;
 }
-
+/*
 int get_data_and_labels(cv::String path, cv::Mat & features, cv::Mat & labels, cv::Size & roi_size)
 {
 	DIR *dir, *subdir;
@@ -106,8 +106,9 @@ int get_data_and_labels(cv::String path, cv::Mat & features, cv::Mat & labels, c
 		return 0;
 	}
 	else {
-		/* could not open directory */
+		// could not open directory
 		perror("");
 		return EXIT_FAILURE;
 	}
 }
+*/

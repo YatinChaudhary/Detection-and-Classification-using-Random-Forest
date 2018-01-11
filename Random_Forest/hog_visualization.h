@@ -1,6 +1,8 @@
 #ifndef HOG_VISUALIZATION_H
 #define HOG_VISUALIZATION_H
 
+#include "..\include\dirent.h"
+
 // for general functionality
 #include "opencv2\highgui\highgui.hpp"
 #include "opencv2\imgproc\imgproc.hpp"
@@ -24,6 +26,8 @@ extern void visualizeHOG(cv::Mat & img,
 * hog_detector - the instance of cv::HOGDescriptor you used
 * scale_factor - scale the image *scale_factor* times larger for better visualization
 */
+
+int get_data_and_labels(cv::String path, cv::Mat & features, cv::Mat & labels, cv::Size & roi_size);
 
 #endif // !HOG_VISUALIZATION
 

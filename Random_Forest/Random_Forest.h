@@ -2,6 +2,7 @@
 #define RANDOM_FOREST_H
 
 #include "hog_visualization.h"
+#include "opencv2\ml.hpp"
 
 class Random_Forest {
 public:
@@ -12,7 +13,7 @@ public:
 				  const int & min_sample_count);
 
 	void create();
-	void train();
+	void train(int ratio = 0.5);
 	int predict(cv::Mat & feature);
 
 	~Random_Forest();
@@ -23,6 +24,12 @@ private:
 	int max_categories_;
 	int max_depth_;
 	int min_sample_count_;
+
+	cv::Mat features;
+	cv::Mat labels;
+	cv::Size roi;
+
+	std::vector<cv::Ptr<cv::ml::DTrees>> trees;
 };
 
 #endif // !RANDOM_FOREST_H
